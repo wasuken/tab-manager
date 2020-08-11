@@ -1,0 +1,45 @@
+<html>
+  <head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  </head>
+  <body style="width:400px;">
+	<!-- body -->
+	<h2>タブ管理</h2>
+	<div>
+	  <!-- クエリ入力 -->
+	  <p>
+		クエリ:<input id="query" type="text" value=""/>
+		検索:<input id="search-submit" type="submit" value="検索"/>
+	  </p>
+	  <!-- 対象ウインドウ選択 -->
+	  <p>
+		<input id="current-window-check" type="checkbox" value="currentWindow" />
+		<label for="current-window-check">カレントウィンドウ内のみ</label>
+	  </p>
+	  <!-- 検索タイプ選択 -->
+	  <p>
+		<h3>検索タイプ</h3>
+		<select id="search-type">
+		  <option value="all" selected>all</option>
+		  <option value="url">url</option>
+		  <option value="title">title</option>
+		</select>
+	  </p>
+	  <!-- 命令ボタン群 -->
+	  <p>
+		<h3>選択タブ一括操作</h3>
+		<button id="btn-remove">remove</button>
+		<button id="btn-new-window">new-window</button>
+		<button id="btn-all-check">all-check</button>
+	  </p>
+	  <hr/>
+	  <!-- 検索結果一覧 -->
+	  <!-- 各レコードごとにチェックボックスが付随する感じ。 -->
+	  <ul id="search-result"></ul>
+	</div>
+	<script src="popup.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+    "name": "tab-manager",
+    "description" : "manage tabs.",
+    "version": "1.0",
+    "manifest_version": 2,
+	"background": {
+		"persistent": false,
+		"scripts": ["background.js"]
+	},
+	"permissions": [
+		"activeTab",
+		"tabs"
+    ],
+	"browser_action": {
+		"default_popup": "popup.html"
+	}
+}
