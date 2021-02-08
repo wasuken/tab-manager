@@ -105,3 +105,22 @@ let allInversionCheck = function(){
 }
 
 document.getElementById("btn-all-check").onclick = allInversionCheck;
+
+let btnAllLinkClip = function(){
+  let ids = targetIds();
+  if(ids.length <= 0){
+	console.log("no targets");
+	return;
+  }
+  let url_lst = []
+  ids.forEach(id => {
+	chrome.tabs.get(id, tab => {
+	  url_lst.push(tab.url);
+	})
+  });
+  setTimeout(() => {
+    window.prompt('URL', url_lst.join('\n'));
+  }, 4000);
+}
+
+document.getElementById('btn-all-link-clip').onclick = btnAllLinkClip;
