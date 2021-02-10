@@ -124,3 +124,27 @@ let btnAllLinkClip = function(){
 }
 
 document.getElementById('btn-all-link-clip').onclick = btnAllLinkClip;
+
+let btnRemoveDuplicate = function(){
+  let ids = targetIds();
+  if(ids.length <= 0){
+	console.log("no targets");
+	return;
+  }
+  let url_set = new Set();
+  let remove_ids = [];
+  ids.forEach(id => {
+	chrome.tabs.get(id, tab => {
+	  if(url_set.has(tab.url)){
+		remove_ids.push(tab.id);
+	  }else{
+		url_set.add(tab.url);
+	  }
+	})
+  });
+  setTimeout(() => {
+	chrome.tabs.remove(remove_ids, function(){});
+  }, 4000);
+}
+
+document.getElementById('btn-remove-duplicate').onclick = btnRemoveDuplicate;
